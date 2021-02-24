@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Counter></Counter>
         <ul>
           {
             products.map(pd=><li>{pd.name}</li>)
@@ -21,6 +23,16 @@ function App() {
       </header>
     </div>
   );
+}
+function Counter(){
+  const [count,setCount] = useState(0);
+  const handleIncrease = ()=>setCount(count +1 );
+  return(
+    <div>
+      <h1>count:{count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+    </div>
+  )
 }
 
 function Product(props){
